@@ -1,0 +1,1596 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>E-Cell - Engineering the Future of Innovation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "surface-container-low": "#111111",
+                        "on-tertiary": "#2f303a",
+                        "inverse-surface": "#ffffff",
+                        "surface-variant": "#1a1a1a",
+                        "background": "#0a0a0a",
+                        "on-tertiary-fixed": "#1a1b24",
+                        "on-primary-fixed": "#001452",
+                        "on-surface": "#ffffff",
+                        "outline": "#444444",
+                        "inverse-on-surface": "#0a0a0a",
+                        "tertiary": "#c6c5d2",
+                        "on-tertiary-container": "#e5e3f1",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#454651",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "surface": "#0a0a0a",
+                        "secondary-fixed": "#00d1ff",
+                        "primary-container": "#0052ff",
+                        "surface-container-lowest": "#050505",
+                        "surface-dim": "#0a0a0a",
+                        "on-primary-container": "#ffffff",
+                        "surface-container-high": "#222222",
+                        "error": "#ffb4ab",
+                        "on-primary": "#002682",
+                        "secondary": "#d3fbff",
+                        "primary": "#00d1ff",
+                        "primary-fixed-dim": "#00d1ff",
+                        "surface-container-highest": "#333333",
+                        "secondary-fixed-dim": "#00d1ff",
+                        "on-surface-variant": "#cccccc",
+                        "tertiary-fixed": "#e3e1ef",
+                        "tertiary-fixed-dim": "#c6c5d2",
+                        "secondary-container": "#00d1ff",
+                        "outline-variant": "#333333",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "on-secondary-container": "#00686f",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#ffffff",
+                        "inverse-primary": "#004ced",
+                        "surface-bright": "#1a1a1a",
+                        "tertiary-container": "#656571",
+                        "on-secondary-fixed": "#002022",
+                        "surface-tint": "#00d1ff",
+                        "surface-container": "#0f0f0f",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary": "#00363a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "20px",
+                        "stack-sm": "8px",
+                        "section-gap": "80px",
+                        "container-padding": "24px",
+                        "stack-lg": "32px",
+                        "unit": "4px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Sora"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Sora"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "800" }]
+                    },
+                    "animation": {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    "keyframes": {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 10px rgba(0, 209, 255, 0.2)' },
+                            '50%': { boxShadow: '0 0 25px rgba(0, 209, 255, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            cursor: none;
+        }
+        /* Custom Cursor styling */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00d1ff;
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate3d(-50%, -50%, 0);
+            transition: width 0.25s ease-out, height 0.25s ease-out, background-color 0.25s ease-out;
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(0, 209, 255, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate3d(-50%, -50%, 0);
+            transition: width 0.25s ease-out, height 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out;
+        }
+        /* Interactive Cursor Hover State */
+        body.cursor-hover .cursor-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #d3fbff;
+        }
+        body.cursor-hover .cursor-outline {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(0, 209, 255, 0.8);
+            background-color: rgba(0, 209, 255, 0.05);
+        }
+        /* Cursor Sparkle Particles */
+        .cursor-particle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9997;
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            will-change: transform, opacity;
+        }
+        /* Click Shockwave Ripple */
+        @keyframes rippleEffect {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 80px;
+                height: 80px;
+                opacity: 0;
+            }
+        }
+        .cursor-ripple {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9996;
+            border: 2px solid #00d1ff;
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            animation: rippleEffect 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            will-change: width, height, opacity;
+        }
+        /* Magnetic elements */
+        .magnetic-element {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        /* Make interactive elements hide default cursor */
+        a, button, input, textarea, [role="button"], canvas {
+            cursor: none;
+        }
+        /* Background Spotlight */
+        .bg-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 209, 255, 0.04), transparent 80%);
+        }
+        /* Glass Card mouse reaction spotlight */
+        .glass-card-container {
+            perspective: 1000px;
+        }
+        .glass-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+            box-shadow: inset 1px 1px 0px rgba(255,255,255,0.02);
+            transform-style: preserve-3d;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease-out;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(400px circle at var(--card-mouse-x, 0px) var(--card-mouse-y, 0px), rgba(0, 209, 255, 0.08), transparent 80%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+        .glass-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 209, 255, 0.2);
+            border-color: rgba(0, 209, 255, 0.4);
+        }
+        .glow-icon {
+            transition: filter 0.3s ease;
+        }
+        .group:hover .glow-icon {
+            filter: brightness(0) saturate(100%) invert(58%) sepia(82%) saturate(1989%) hue-rotate(159deg) brightness(101%) contrast(101%) drop-shadow(0 0 12px rgba(0, 209, 255, 0.9));
+        }
+        .btn-primary {
+            background-color: #00d1ff;
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 25px rgba(0, 209, 255, 0.4);
+            background-color: #ffffff;
+        }
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid #00d1ff;
+            color: #00d1ff;
+            transition: all 0.3s ease;
+        }
+        .btn-ghost:hover {
+            background: rgba(0, 209, 255, 0.15);
+            color: #ffffff;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222222; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d1ff; 
+        }
+        .section-gradient {
+            background: linear-gradient(180deg, #0a0a0a 0%, #05101a 50%, #0a0a0a 100%);
+        }
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-reveal {
+            opacity: 0;
+            animation: revealUp 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-150 { animation-delay: 0.15s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-450 { animation-delay: 0.45s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Scroll Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1), transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-100 { transition-delay: 0.1s; }
+        .reveal-delay-200 { transition-delay: 0.2s; }
+        .reveal-delay-300 { transition-delay: 0.3s; }
+        .reveal-delay-400 { transition-delay: 0.4s; }
+        .reveal-delay-500 { transition-delay: 0.5s; }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-background text-on-surface antialiased overflow-x-hidden selection:bg-secondary-fixed-dim selection:text-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-white/5 shadow-[0_0_30px_rgba(0,209,255,0.05)]">
+<div class="flex justify-between items-center h-20 px-gutter max-w-7xl mx-auto">
+<a class="font-headline-md text-headline-md font-black text-white tracking-tighter" href="#home"><img alt="E-Cell Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJjJDqK5-52GtmXPdY5V70eKYp4zbZjp8A37m3mtZbz5muPH71S6wN_MklooSc7AnZ5WuIAJf06LrwjwjYlqJkIuKIkwJPgXeJDYctSzsGI540jwvdq2mfTzAWVUjY-RcXJ_KLSjoqRC-ef8fjNeLojg8bxMrOtDoPxulTWgewKr0tc7gPOzXfvVjAXGTZhrxTTZOAfHy5JDpy53GnaYj-acJ734HetC__4cPhbPQG6_kITVhepF7TAFFXXh0kHo3ISnJemTl0zY8"></a>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex items-center gap-stack-lg font-body-md text-body-md">
+  <li><a class="nav-link text-secondary-fixed-dim font-bold border-b-2 border-secondary-fixed-dim pb-1 px-2 transition-all duration-300" href="#home">Home</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#about">About</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#initiatives">Initiatives</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#events">Events</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#team">Team</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#sponsors">Sponsors</a></li>
+  <li><a class="nav-link text-on-surface-variant hover:text-white border-b-2 border-transparent pb-1 px-2 transition-all duration-300" href="#contact">Contact</a></li>
+</ul>
+<div class="hidden md:block">
+<a class="btn-primary font-body-lg text-body-lg px-6 py-2 rounded-lg font-bold" href="#contact">Join E-Cell</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button id="mobile-menu-toggle" class="md:hidden text-primary hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<!-- Mobile Drawer Menu -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl md:hidden flex flex-col justify-center items-center gap-6 translate-x-full transition-transform duration-300">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-primary hover:text-secondary-fixed-dim transition-colors">
+    <span class="material-symbols-outlined text-4xl">close</span>
+  </button>
+  <ul class="flex flex-col items-center gap-6 font-display-lg text-[24px] font-bold">
+    <li><a class="mobile-nav-link text-secondary-fixed-dim" href="#home">Home</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#about">About</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#initiatives">Initiatives</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#events">Events</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#team">Team</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#sponsors">Sponsors</a></li>
+    <li><a class="mobile-nav-link text-on-surface-variant hover:text-white" href="#contact">Contact</a></li>
+  </ul>
+  <a class="mobile-nav-link btn-primary font-body-lg text-body-lg px-8 py-3 rounded-lg font-bold mt-4" href="#contact">Join E-Cell</a>
+</div>
+</nav>
+
+<main class="w-full">
+<!-- Hero Section -->
+<section id="home" class="relative min-h-[110vh] flex items-center justify-center pt-20 overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#004066]/20 via-[#0a0a0a] to-[#0a0a0a]">
+<!-- STITCH_SHADER_START:ANIMATION_14 class="absolute inset-0 w-full h-full z-0" -->
+<div class="absolute inset-0 w-full h-full z-0 bg-[#040914]" style="display:block;">
+<canvas id="hero-canvas" class="w-full h-full opacity-60" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = canvas.clientWidth;
+  let height = canvas.height = canvas.clientHeight;
+
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      width = canvas.width  = w;
+      height = canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const particles = [];
+  const particleCount = 100;
+  const connectionDistance = 110;
+  const mouseConnectionDistance = 160;
+
+  let mouse = { x: null, y: null, active: false };
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    mouse.active = false;
+  });
+
+  // Particle Class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.8;
+      this.vy = (Math.random() - 0.5) * 0.8;
+      this.radius = Math.random() * 2.5 + 1.5;
+      const colors = ['#00d1ff', '#b7c4ff', '#ffffff', '#0077ff'];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    update() {
+      if (mouse.active) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < mouseConnectionDistance) {
+          const force = (mouseConnectionDistance - dist) / mouseConnectionDistance;
+          this.vx += (dx / dist) * force * 0.03;
+          this.vy += (dy / dist) * force * 0.03;
+        }
+      }
+
+      const speed = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
+      if (speed > 2.0) {
+        this.vx = (this.vx / speed) * 2.0;
+        this.vy = (this.vy / speed) * 2.0;
+      }
+
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = this.color;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.strokeStyle = 'rgba(0, 209, 255, 0.02)';
+    ctx.lineWidth = 1;
+    const gridSize = 40;
+    for (let x = 0; x < width; x += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for (let y = 0; y < height; y += gridSize) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    for (let i = 0; i < particles.length; i++) {
+      const p1 = particles[i];
+      
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if (dist < connectionDistance) {
+          const alpha = (connectionDistance - dist) / connectionDistance;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(0, 209, 255, ${alpha * 0.15})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      if (mouse.active) {
+        const dx = p1.x - mouse.x;
+        const dy = p1.y - mouse.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if (dist < mouseConnectionDistance) {
+          const alpha = (mouseConnectionDistance - dist) / mouseConnectionDistance;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(0, 209, 255, ${alpha * 0.25})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_14 -->
+<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-0 mix-blend-overlay"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-container-padding flex flex-col items-center text-center gap-stack-lg mt-10">
+<div class="animate-reveal inline-flex items-center gap-2 px-6 py-3 rounded-none bg-black border border-secondary-fixed-dim/50 shadow-[4px_4px_0px_rgba(0,209,255,1)]">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse-glow"></span>
+<span class="font-label-md text-label-md text-white font-bold tracking-widest uppercase">E-CELL VNIT</span>
+</div>
+<h1 class="animate-reveal delay-150 font-display-lg text-display-lg md:text-[96px] font-black text-white leading-[1.1] max-w-6xl tracking-tighter uppercase drop-shadow-2xl">
+                    Empowering the Next Generation of <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">Innovators</span>
+</h1>
+<p class="animate-reveal delay-300 font-body-lg text-[22px] text-on-surface-variant max-w-3xl mx-auto font-medium">E-Cell is where groundbreaking ideas meet venture capital agility. We incubate, mentor, and accelerate the startups defining tomorrow.</p>
+<div class="animate-reveal delay-450 flex flex-col sm:flex-row gap-stack-lg mt-stack-lg w-full sm:w-auto">
+<a class="btn-primary font-body-lg text-body-lg px-10 py-5 rounded-none font-bold flex items-center justify-center gap-3 shadow-[6px_6px_0px_rgba(255,255,255,0.2)] hover:shadow-[2px_2px_0px_rgba(255,255,255,0.2)] hover:translate-y-[4px] hover:translate-x-[4px] uppercase tracking-wider" href="#contact">
+                        Join the Movement
+                        <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</a>
+<a class="btn-ghost font-body-lg text-body-lg px-10 py-5 rounded-none font-bold flex items-center justify-center uppercase tracking-wider bg-black border-2" href="#initiatives">
+                        Explore Initiatives
+                    </a>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="animate-reveal delay-600 absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-secondary-fixed-dim opacity-90 animate-bounce">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] font-bold">Scroll</span>
+<span class="material-symbols-outlined text-3xl">expand_more</span>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-section-gap max-w-7xl mx-auto px-container-padding section-gradient">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- About Narrative (Left Column) -->
+    <div class="lg:col-span-7 flex flex-col gap-stack-md text-left reveal-on-scroll">
+      <div class="inline-flex items-center gap-2 px-4 py-2 w-fit bg-white/5 border border-white/10 rounded-full">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span class="font-label-sm text-label-sm text-white uppercase tracking-widest">About E-Cell</span>
+      </div>
+      <h2 class="font-headline-lg text-[48px] md:text-[56px] font-black text-white uppercase tracking-tight leading-none">
+        Architecting the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">Future</span> of Venturing
+      </h2>
+      <p class="font-body-lg text-on-surface-variant text-[18px]">
+        At the Entrepreneurship Cell, we cultivate the spirit of enterprise among student communities. We serve as a vital link between creative minds, academic institutions, industry pioneers, and leading venture capital networks.
+      </p>
+      <p class="font-body-md text-[#aaaaaa]">
+        Our ecosystem provides end-to-end enablement: from initial ideation and prototype development to formal incubation, professional mentorship, and direct pitch events with Tier-1 seed investors.
+      </p>
+    </div>
+    
+    <!-- Stats Cards (Right Column) -->
+    <div class="lg:col-span-5 grid grid-cols-1 gap-6">
+      <!-- Stat 1 -->
+      <div class="glass-card reveal-on-scroll p-6 flex items-center gap-6 rounded-xl hover:border-secondary-fixed-dim transition-all duration-300">
+        <div class="w-14 h-14 bg-black border border-white/10 flex items-center justify-center text-primary rounded-lg">
+          <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+        </div>
+        <div>
+          <span class="block font-display-lg text-[40px] font-black text-white leading-none drop-shadow-[0_0_15px_rgba(0,209,255,0.4)]">500+</span>
+          <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">Startups</span>
+        </div>
+      </div>
+      <!-- Stat 2 -->
+      <div class="glass-card reveal-on-scroll reveal-delay-100 p-6 flex items-center gap-6 rounded-xl hover:border-secondary-fixed-dim transition-all duration-300">
+        <div class="w-14 h-14 bg-black border border-white/10 flex items-center justify-center text-primary rounded-lg">
+          <svg class="w-8 h-8 fill-current text-primary" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stand -->
+            <rect x="11" y="14" width="2" height="8" rx="0.5"/>
+            <!-- Tilted Handle -->
+            <rect x="5.5" y="9.5" width="11" height="4" rx="1" transform="rotate(-35 11 11.5)"/>
+            <!-- Tilted Capsule -->
+            <circle cx="15.5" cy="8.5" r="3.5"/>
+          </svg>
+        </div>
+        <div>
+          <span class="block font-display-lg text-[40px] font-black text-white leading-none drop-shadow-[0_0_15px_rgba(0,209,255,0.4)]">500+</span>
+          <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">Speakers</span>
+        </div>
+      </div>
+      <!-- Stat 3 -->
+      <div class="glass-card reveal-on-scroll reveal-delay-200 p-6 flex items-center gap-6 rounded-xl hover:border-secondary-fixed-dim transition-all duration-300">
+        <div class="w-14 h-14 bg-black border border-white/10 flex items-center justify-center text-primary rounded-lg">
+          <span class="material-symbols-outlined text-3xl">school</span>
+        </div>
+        <div>
+          <span class="block font-display-lg text-[40px] font-black text-white leading-none drop-shadow-[0_0_15px_rgba(0,209,255,0.4)]">5000+</span>
+          <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">Students</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Initiatives Section -->
+<section id="initiatives" class="py-section-gap max-w-7xl mx-auto px-container-padding">
+<div class="flex flex-col gap-stack-sm mb-stack-lg text-center md:text-left reveal-on-scroll">
+<h2 class="font-headline-lg text-[56px] font-black text-white uppercase tracking-tight">Core Initiatives</h2>
+<p class="font-body-lg text-[20px] text-primary">The structural pillars of our ecosystem.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-lg">
+<!-- Card 1 -->
+<div class="md:col-span-7 glass-card p-10 flex flex-col gap-stack-md transition-all duration-300 hover:border-secondary-fixed-dim group reveal-on-scroll rounded-xl">
+<div class="w-16 h-16 bg-black border border-[#444] flex items-center justify-center text-white group-hover:text-secondary-fixed-dim group-hover:border-secondary-fixed-dim transition-colors shadow-[4px_4px_0_#222] group-hover:shadow-[4px_4px_0_rgba(0,209,255,1)]">
+<span class="material-symbols-outlined text-4xl">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-[32px] text-white font-black uppercase mt-4">Launchpad</h3>
+<p class="font-body-md text-[18px] text-[#aaaaaa] flex-grow">Got an idea that can change the game? Launchpad is your chance to pitch, build, and shine! Join E-Cell's ultimate idea-stage startup competition, get mentored by industry pros, and take your first step toward becoming a founder. Registrations are now open - let's launch your dream!.</p>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-auto hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="#contact">
+                        Learn More <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-5 glass-card p-10 flex flex-col gap-stack-md transition-all duration-300 hover:border-secondary-fixed-dim group reveal-on-scroll reveal-delay-100 rounded-xl">
+<div class="w-16 h-16 bg-black border border-[#444] flex items-center justify-center text-white group-hover:text-secondary-fixed-dim group-hover:border-secondary-fixed-dim transition-colors shadow-[4px_4px_0_#222] group-hover:shadow-[4px_4px_0_rgba(0,209,255,1)]">
+<img src="neo_logo.png" alt="NEO" class="w-10 h-10 object-contain glow-icon">
+</div>
+<h3 class="font-headline-md text-[32px] text-white font-black uppercase mt-4">NEO</h3>
+<p class="font-body-md text-[18px] text-[#aaaaaa] flex-grow">National Entrepreneurship Olympiad is a PAN - India examination and a skill enhancement program for the students of class 6th to 12th grade to nurture and test their entrepreneurial skills. This Olympiad includes sections like Basic Entrepreneurial Concepts, Value Proposition, Finances...</p>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-auto hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="#contact">
+                        Learn more <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-12 md:w-5/6 mx-auto glass-card p-10 flex flex-col sm:flex-row items-start sm:items-center gap-10 transition-all duration-300 hover:border-secondary-fixed-dim group reveal-on-scroll reveal-delay-200 rounded-xl">
+<div class="w-20 h-20 shrink-0 bg-black border border-[#444] flex items-center justify-center text-white group-hover:text-secondary-fixed-dim group-hover:border-secondary-fixed-dim transition-colors shadow-[4px_4px_0_#222] group-hover:shadow-[4px_4px_0_rgba(0,209,255,1)]">
+<img src="c_suites_logo.png" alt="C-Suites" class="w-14 h-14 object-contain glow-icon">
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-[32px] text-white font-black uppercase">C-Suites</h3>
+<p class="font-body-md text-[18px] text-[#aaaaaa] mt-2 max-w-2xl">C-Suites is a community of like-minded people within VNIT Nagpur where we grow ourselves individually along with people around us. The mission seeks to create a self-sustained ecosystem, where peers discuss and learn from each other through regular group interactions.</p>
+</div>
+<a class="font-label-md text-label-md text-black bg-secondary-fixed-dim px-6 py-3 shrink-0 flex items-center gap-2 hover:bg-white w-fit font-bold tracking-widest uppercase transition-colors" href="#contact">
+                        Learn more <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Events Section -->
+<section id="events" class="py-section-gap section-gradient relative overflow-hidden border-t border-white/5 border-b">
+<div class="max-w-7xl mx-auto px-container-padding relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-stack-md reveal-on-scroll">
+<div class="flex flex-col gap-stack-sm">
+<h2 class="font-headline-lg text-[56px] font-black text-white uppercase tracking-tight">Upcoming Events</h2>
+<p class="font-body-lg text-[20px] text-primary">Engage with the ecosystem.</p>
+</div>
+<a class="btn-ghost font-label-md text-label-md px-6 py-3 rounded-none font-bold uppercase tracking-widest bg-black border-2" href="#contact">View Calendar</a>
+</div>
+<div class="space-y-stack-md relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-1 before:bg-[#222]">
+<!-- Event 1 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-secondary-fixed-dim bg-black shadow-[0_0_20px_rgba(0,209,255,0.8)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+<span class="w-4 h-4 bg-white"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll flex flex-col items-center justify-center text-center">
+<img src="flagship.png" alt="FLAGSHIP" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">FLAGSHIP</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-100 flex flex-col items-center justify-center text-center">
+<img src="startup_conclave.png" alt="STARTUP CONCLAVE" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">STARTUP CONCLAVE</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-200 flex flex-col items-center justify-center text-center">
+<img src="jugaad.png" alt="JUGAAD" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">JUGAAD</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-300 flex flex-col items-center justify-center text-center">
+<img src="adventure.png" alt="ADVENTURE" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">ADVENTURE</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 5 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-400 flex flex-col items-center justify-center text-center">
+<img src="wallstreet.png" alt="WALLSTREET" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">WALLSTREET</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 6 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-100 flex flex-col items-center justify-center text-center">
+<img src="ceo.png" alt="CEO" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">CEO</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 7 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-200 flex flex-col items-center justify-center text-center">
+<img src="render_ico.png" alt="RENDER.ICO" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">RENDER.ICO</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 8 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-300 flex flex-col items-center justify-center text-center">
+<img src="ipl_auction.png" alt="IPL AUCTION" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">IPL AUCTION</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Event 9 -->
+<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+<div class="flex items-center justify-center w-12 h-12 rounded-none border-4 border-[#444] bg-black shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:border-secondary-fixed-dim transition-colors">
+<span class="w-4 h-4 bg-[#444] group-hover:bg-secondary-fixed-dim transition-colors"></span>
+</div>
+<div class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] glass-card p-6 rounded-xl transition-all duration-300 hover:border-secondary-fixed-dim group-hover:shadow-[0_0_30px_rgba(0,209,255,0.1)] reveal-on-scroll reveal-delay-400 flex flex-col items-center justify-center text-center">
+<img src="swades.png" alt="SWADES" class="h-28 w-auto object-contain mb-4 glow-icon">
+<h4 class="font-headline-md text-[24px] text-white font-black uppercase">SWADES</h4>
+<a class="font-label-md text-label-md text-secondary-fixed-dim flex items-center gap-2 mt-4 hover:text-white w-fit font-bold tracking-widest uppercase transition-colors" href="https://ecellvnit.org" target="_blank">
+                        KNOW MORE <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="py-section-gap max-w-7xl mx-auto px-container-padding">
+  <div class="flex flex-col gap-stack-sm mb-stack-lg text-center md:text-left reveal-on-scroll">
+    <h2 class="font-headline-lg text-[56px] font-black text-white uppercase tracking-tight">Our Leadership Team</h2>
+    <p class="font-body-lg text-[20px] text-primary">The visionaries steering the innovation engine.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-stack-lg">
+    <!-- Team Member 1 -->
+    <div class="glass-card reveal-on-scroll p-6 flex flex-col items-center text-center rounded-xl hover:border-secondary-fixed-dim transition-all duration-300 group">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 mb-6 group-hover:border-primary transition-colors">
+        <img src="president.png" alt="Prashant T Labde" class="w-full h-full object-cover">
+      </div>
+      <h3 class="font-headline-md text-[22px] text-white font-black uppercase">Prashant T Labde</h3>
+      <span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider block mt-1">President</span>
+      <p class="font-body-md text-[#aaaaaa] mt-4 text-[14px]">Undergrad Innovator. Navigating corporate governance, venture partnerships, and E-Cell's scaling strategy.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Website"><span class="material-symbols-outlined text-xl">language</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Email"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Instagram">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="glass-card reveal-on-scroll reveal-delay-100 p-6 flex flex-col items-center text-center rounded-xl hover:border-secondary-fixed-dim transition-all duration-300 group">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 mb-6 group-hover:border-primary transition-colors">
+        <img src="vice_president.jpg" alt="Anushka Kumari" class="w-full h-full object-cover">
+      </div>
+      <h3 class="font-headline-md text-[22px] text-white font-black uppercase">Anushka Kumari</h3>
+      <span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider block mt-1">Vice President</span>
+      <p class="font-body-md text-[#aaaaaa] mt-4 text-[14px]">Incubation Strategist. Oversees mentorship matches and coordinates relationships with incubator networks.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Website"><span class="material-symbols-outlined text-xl">language</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Email"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Instagram">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 3 -->
+    <div class="glass-card reveal-on-scroll reveal-delay-200 p-6 flex flex-col items-center text-center rounded-xl hover:border-secondary-fixed-dim transition-all duration-300 group">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 mb-6 group-hover:border-primary transition-colors">
+        <img src="treasurer.png" alt="Devesh Mishra" class="w-full h-full object-cover">
+      </div>
+      <h3 class="font-headline-md text-[22px] text-white font-black uppercase">Devesh Mishra</h3>
+      <span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider block mt-1">Treasurer</span>
+      <p class="font-body-md text-[#aaaaaa] mt-4 text-[14px]">Oversees all monetary transactions, including budgeting, funding, and expense tracking for events like Consortium.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Website"><span class="material-symbols-outlined text-xl">language</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Email"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Instagram">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Team Member 4 -->
+    <div class="glass-card reveal-on-scroll reveal-delay-300 p-6 flex flex-col items-center text-center rounded-xl hover:border-secondary-fixed-dim transition-all duration-300 group">
+      <div class="w-32 h-32 rounded-full overflow-hidden border-2 border-white/10 mb-6 group-hover:border-primary transition-colors">
+        <img src="operations_lead.png" alt="Gokul T V" class="w-full h-full object-cover">
+      </div>
+      <h3 class="font-headline-md text-[22px] text-white font-black uppercase">Gokul T V</h3>
+      <span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-wider block mt-1">Head of Operations & Planning</span>
+      <p class="font-body-md text-[#aaaaaa] mt-4 text-[14px]">Designs roadmaps for events, workshops, and summits, making sure timelines and resources are well-coordinated.</p>
+      <div class="flex gap-4 mt-6">
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Website"><span class="material-symbols-outlined text-xl">language</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Email"><span class="material-symbols-outlined text-xl">alternate_email</span></a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-[#aaaaaa] hover:text-white transition-colors flex items-center justify-center" aria-label="Instagram">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sponsors Section -->
+<section id="sponsors" class="py-section-gap section-gradient border-t border-white/5 border-b">
+  <div class="max-w-7xl mx-auto px-container-padding">
+    <div class="flex flex-col gap-stack-sm mb-stack-lg text-center reveal-on-scroll">
+      <h2 class="font-headline-lg text-[56px] font-black text-white uppercase tracking-tight">Ecosystem Partners</h2>
+      <p class="font-body-lg text-[20px] text-primary">Backed by top-tier venture firms and global technology brands.</p>
+    </div>
+    
+    <!-- Title Sponsors Sub-section -->
+    <div class="mb-12">
+      <h3 class="font-headline-md text-[24px] font-black text-white uppercase tracking-wider mb-6 text-center border-b border-white/10 pb-2">TITLE SPONSORS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center max-w-4xl mx-auto">
+        <!-- Sponsor 1: Zebronics -->
+        <div class="reveal-on-scroll h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="zebronics.png" alt="Zebronics" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 2: Unacademy -->
+        <div class="reveal-on-scroll reveal-delay-100 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="unacademy.png" alt="Unacademy" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 3: Akudo -->
+        <div class="reveal-on-scroll reveal-delay-200 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="akudo.png" alt="Akudo" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Gold Sponsors Sub-section -->
+    <div class="mb-12">
+      <h3 class="font-headline-md text-[24px] font-black text-white uppercase tracking-wider mb-6 text-center border-b border-white/10 pb-2">GOLD SPONSORS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center max-w-4xl mx-auto">
+        <!-- Sponsor 4: Kawasaki -->
+        <div class="reveal-on-scroll h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="kawasaki.png" alt="Kawasaki" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 5: Coca-Cola -->
+        <div class="reveal-on-scroll reveal-delay-100 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="cocacola.png" alt="Coca-Cola" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 6: Radisson Blu -->
+        <div class="reveal-on-scroll reveal-delay-200 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="radisson.png" alt="Radisson Blu" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Silver Sponsors Sub-section -->
+    <div class="mb-12">
+      <h3 class="font-headline-md text-[24px] font-black text-white uppercase tracking-wider mb-6 text-center border-b border-white/10 pb-2">SILVER SPONSORS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center max-w-4xl mx-auto">
+        <!-- Sponsor 7: Adobe -->
+        <div class="reveal-on-scroll h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="adobe.png" alt="Adobe" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 8: Air India -->
+        <div class="reveal-on-scroll reveal-delay-100 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="airindia.png" alt="Air India" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <!-- Sponsor 9: Central Brand.New -->
+        <div class="reveal-on-scroll reveal-delay-200 h-28 flex items-center justify-center rounded-xl p-6 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <img src="central.png" alt="Central Brand.New" class="max-h-16 max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Sponsors Sub-section -->
+    <div>
+      <h3 class="font-headline-md text-[24px] font-black text-white uppercase tracking-wider mb-6 text-center border-b border-white/10 pb-2">OTHER SPONSORS</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center items-center max-w-4xl mx-auto">
+        <!-- Placeholder 1 -->
+        <div class="reveal-on-scroll h-28 flex flex-col items-center justify-center rounded-xl p-4 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <span class="font-display-lg text-[20px] font-black tracking-widest text-[#888] group-hover:text-black transition-colors uppercase">PARTNER</span>
+        </div>
+        <!-- Placeholder 2 -->
+        <div class="reveal-on-scroll reveal-delay-100 h-28 flex flex-col items-center justify-center rounded-xl p-4 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <span class="font-display-lg text-[20px] font-black tracking-widest text-[#888] group-hover:text-black transition-colors uppercase">PARTNER</span>
+        </div>
+        <!-- Placeholder 3 -->
+        <div class="reveal-on-scroll reveal-delay-200 h-28 flex flex-col items-center justify-center rounded-xl p-4 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <span class="font-display-lg text-[20px] font-black tracking-widest text-[#888] group-hover:text-black transition-colors uppercase">PARTNER</span>
+        </div>
+        <!-- Placeholder 4 -->
+        <div class="reveal-on-scroll reveal-delay-300 h-28 flex flex-col items-center justify-center rounded-xl p-4 border border-white/10 hover:border-secondary-fixed-dim transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,209,255,0.15)] bg-white">
+          <span class="font-display-lg text-[20px] font-black tracking-widest text-[#888] group-hover:text-black transition-colors uppercase">PARTNER</span>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-section-gap max-w-7xl mx-auto px-container-padding">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <!-- Contact Info (Left Column) -->
+    <div class="lg:col-span-5 flex flex-col gap-stack-md reveal-on-scroll">
+      <div class="flex flex-col gap-stack-sm text-left">
+        <h2 class="font-headline-lg text-[56px] font-black text-white uppercase tracking-tight">Get in Touch</h2>
+        <p class="font-body-lg text-[20px] text-primary">Let's discuss how we can build together.</p>
+      </div>
+      <p class="font-body-md text-[#aaaaaa]">
+        Have a startup idea? Want to join our team, act as a mentor, or sponsor our next event? Drop us a message, and our startup accelerator team will get back to you within 24 hours.
+      </p>
+      
+      <!-- Info Details Card -->
+      <div class="glass-card p-8 rounded-xl flex flex-col gap-6 mt-4">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+          <div>
+            <h4 class="font-headline-md text-[18px] text-white font-bold uppercase">Location</h4>
+            <p class="font-body-md text-[#aaaaaa] mt-1 text-[15px]">E-Cell office, 1st Floor VNIT Canteen, Visvesvaraya National Institute Of Technology, South Ambazari Road, Abhyankar Nagar, Nagpur- 440010</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+          <div>
+            <h4 class="font-headline-md text-[18px] text-white font-bold uppercase">Email Address</h4>
+            <a href="mailto:publicrelations@ecellvnit.co.in" class="font-body-md text-[#aaaaaa] hover:text-white transition-colors mt-1 text-[15px] block">publicrelations@ecellvnit.co.in</a>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-primary text-2xl">phone</span>
+          <div>
+            <h4 class="font-headline-md text-[18px] text-white font-bold uppercase">Phone Number</h4>
+            <p class="font-body-md text-[#aaaaaa] mt-1 text-[15px]">+91 98765 43210</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contact Form (Right Column) -->
+    <div class="lg:col-span-7 reveal-on-scroll reveal-delay-200">
+      <form action="#" class="glass-card p-10 rounded-xl flex flex-col gap-6 relative overflow-hidden bg-black/20" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-2">
+            <label for="name" class="font-label-sm text-label-sm text-[#aaaaaa] uppercase tracking-wider font-semibold">Full Name</label>
+            <input type="text" id="name" required class="bg-black/20 border-b border-white/10 rounded-lg p-4 text-white placeholder-[#555] focus:outline-none focus:border-primary focus:shadow-[0_4px_20px_rgba(0,209,255,0.15)] transition-all duration-300" placeholder="John Doe">
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="email" class="font-label-sm text-label-sm text-[#aaaaaa] uppercase tracking-wider font-semibold">Email Address</label>
+            <input type="email" id="email" required class="bg-black/20 border-b border-white/10 rounded-lg p-4 text-white placeholder-[#555] focus:outline-none focus:border-primary focus:shadow-[0_4px_20px_rgba(0,209,255,0.15)] transition-all duration-300" placeholder="john@example.com">
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="subject" class="font-label-sm text-label-sm text-[#aaaaaa] uppercase tracking-wider font-semibold">Subject</label>
+          <input type="text" id="subject" required class="bg-black/20 border-b border-white/10 rounded-lg p-4 text-white placeholder-[#555] focus:outline-none focus:border-primary focus:shadow-[0_4px_20px_rgba(0,209,255,0.15)] transition-all duration-300" placeholder="Startup Incubation / Partnership Inquiry">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="message" class="font-label-sm text-label-sm text-[#aaaaaa] uppercase tracking-wider font-semibold">Message</label>
+          <textarea id="message" rows="5" required class="bg-black/20 border-b border-white/10 rounded-lg p-4 text-white placeholder-[#555] focus:outline-none focus:border-primary focus:shadow-[0_4px_20px_rgba(0,209,255,0.15)] transition-all duration-300 resize-none" placeholder="Tell us about your venture or how you'd like to collaborate..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary font-body-lg text-body-lg px-8 py-4 rounded-lg font-bold mt-2 uppercase tracking-widest text-black flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(0,209,255,0.4)] transition-all duration-300">
+          Send Message
+          <span class="material-symbols-outlined text-xl">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-black/90 border-t border-white/10 w-full pt-16 pb-8 relative overflow-hidden mt-12">
+  <!-- Decorative Background Glow -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full filter blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-container-padding relative z-10">
+    <!-- Top 5-Column Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+      <!-- Column 1: Logo & Info -->
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <img src="ecell_logo.png" alt="E-Cell VNIT Logo" class="h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]">
+        </div>
+        <p class="font-body-sm text-[14px] text-on-surface-variant leading-relaxed">
+          The Entrepreneurship Cell, VNIT
+        </p>
+      </div>
+
+      <!-- Column 2: Consortium -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-headline-sm text-[16px] font-black text-white tracking-widest uppercase border-l-2 border-primary pl-3">Consortium'25</h4>
+        <p class="font-body-sm text-[14px] text-on-surface-variant leading-relaxed">
+          Consortium, the Annual Entrepreneurship Summit and Management Fest of VNIT, Nagpur.
+        </p>
+      </div>
+
+      <!-- Column 3: Quick Links -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-headline-sm text-[16px] font-black text-white tracking-widest uppercase border-l-2 border-primary pl-3">Quick Links</h4>
+        <ul class="flex flex-col gap-2 font-label-md text-[14px] font-semibold text-on-surface-variant">
+          <li>
+            <a href="#events" class="hover:text-white transition-colors duration-300 flex items-center gap-1 group">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              STARTUP CONCLAVE
+            </a>
+          </li>
+          <li>
+            <a href="#events" class="hover:text-white transition-colors duration-300 flex items-center gap-1 group">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              STARTUP EXPO
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-white transition-colors duration-300 flex items-center gap-1 group">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              MERCHANDISE
+            </a>
+          </li>
+          <li>
+            <a href="#initiatives" class="hover:text-white transition-colors duration-300 flex items-center gap-1 group">
+              <span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              NEO
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Us -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-headline-sm text-[16px] font-black text-white tracking-widest uppercase border-l-2 border-primary pl-3">Contact Us</h4>
+        <div class="flex flex-col gap-3 font-body-sm text-[14px]">
+          <div>
+            <span class="block text-white/50 text-[11px] font-bold tracking-wider uppercase mb-0.5">For Public Affairs:</span>
+            <a href="mailto:publicrelations@ecellvnit.co.in" class="text-primary hover:text-white transition-colors duration-300 font-medium break-all">publicrelations@ecellvnit.co.in</a>
+          </div>
+          <div>
+            <span class="block text-white/50 text-[11px] font-bold tracking-wider uppercase mb-0.5">For Association & Sponsorship:</span>
+            <a href="mailto:corporateaffairs@ecellvnit.co.in" class="text-primary hover:text-white transition-colors duration-300 font-medium break-all">corporateaffairs@ecellvnit.co.in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 5: Follow Us -->
+      <div class="flex flex-col gap-4">
+        <h4 class="font-headline-sm text-[16px] font-black text-white tracking-widest uppercase border-l-2 border-primary pl-3">Follow Us</h4>
+        <ul class="flex flex-col gap-2 font-label-md text-[14px] font-semibold text-on-surface-variant">
+          <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+              <svg class="w-4 h-4 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+              <svg class="w-4 h-4 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+              <svg class="w-4 h-4 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+              <svg class="w-4 h-4 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              YouTube
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+              <svg class="w-4 h-4 fill-current text-on-surface-variant group-hover:text-primary transition-colors" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              Twitter
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider Line -->
+    <div class="border-t border-white/10 my-8"></div>
+
+    <!-- Visit Us Section -->
+    <div class="flex flex-col items-center text-center gap-3 max-w-3xl mx-auto mb-8">
+      <div class="flex items-center justify-center gap-2 text-primary">
+        <span class="material-symbols-outlined text-2xl">location_on</span>
+        <h4 class="font-headline-sm text-[16px] font-black text-white tracking-widest uppercase">Visit Us</h4>
+      </div>
+      <p class="font-body-sm text-[14px] text-on-surface-variant leading-relaxed">
+        E-Cell office, 1st Floor VNIT Canteen, Visvesvaraya National Institute Of Technology, South Ambazari Road, Abhyankar Nagar, Nagpur- 440010
+      </p>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/5 pt-6 text-[12px] font-bold uppercase tracking-widest text-on-surface-variant">
+      <div>
+        Copyright: <span class="text-white">E-CELL VNIT</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Custom Cursor HTML elements -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<div class="bg-spotlight"></div>
+
+<!-- Interactive Scripts -->
+<script>
+  // Custom Cursor and Spotlight motion logic
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let outlineX = window.innerWidth / 2;
+  let outlineY = window.innerHeight / 2;
+
+  // Velocity tracking variables
+  let prevMouseX = mouseX;
+  let prevMouseY = mouseY;
+  let currentSpeed = 0;
+  let currentAngle = 0;
+  let isClicked = false;
+  let scaleMultiplier = 1.0;
+
+  // Particle System variables
+  const particles = [];
+  const maxParticles = 60;
+  let lastSpawnX = 0;
+  let lastSpawnY = 0;
+
+  class CursorParticle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 2.5 + 0.5;
+      this.vx = Math.cos(angle) * speed;
+      this.vy = Math.sin(angle) * speed;
+      this.size = Math.random() * 6 + 4;
+      this.alpha = 1.0;
+      this.decay = Math.random() * 0.02 + 0.015;
+      
+      this.el = document.createElement('div');
+      this.el.className = 'cursor-particle';
+      this.el.style.width = `${this.size}px`;
+      this.el.style.height = `${this.size}px`;
+      // Pick random glow color matching brand identity (cyan / white / light blue)
+      const colors = ['rgba(0, 209, 255, ', 'rgba(183, 196, 255, ', 'rgba(255, 255, 255, '];
+      this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+      this.updateEl();
+      document.body.appendChild(this.el);
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.alpha -= this.decay;
+      this.size = Math.max(0, this.size - 0.15);
+      this.updateEl();
+    }
+
+    updateEl() {
+      this.el.style.transform = `translate3d(${this.x}px, ${this.y}px, 0) translate(-50%, -50%)`;
+      this.el.style.opacity = Math.max(0, this.alpha);
+      this.el.style.background = `radial-gradient(circle, ${this.colorBase}${this.alpha}) 0%, ${this.colorBase}0) 70%)`;
+    }
+
+    isDead() {
+      return this.alpha <= 0 || this.size <= 0;
+    }
+
+    destroy() {
+      if (this.el.parentNode) {
+        this.el.parentNode.removeChild(this.el);
+      }
+    }
+  }
+
+  // Magnetic cursor tracking variables
+  let isMagnetized = false;
+  let magneticTargetX = 0;
+  let magneticTargetY = 0;
+
+  // Track mouse coordinates
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Position the dot immediately
+    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+    
+    // Position background spotlight
+    document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
+
+    // Spawn trail particles based on mouse speed & distance
+    const dist = Math.sqrt((mouseX - lastSpawnX) ** 2 + (mouseY - lastSpawnY) ** 2);
+    if (dist > 8) {
+      if (particles.length < maxParticles) {
+        particles.push(new CursorParticle(mouseX, mouseY));
+      }
+      lastSpawnX = mouseX;
+      lastSpawnY = mouseY;
+    }
+  });
+
+  window.addEventListener('mousedown', (e) => {
+    isClicked = true;
+
+    // Spawn shockwave ripple
+    const ripple = document.createElement('div');
+    ripple.className = 'cursor-ripple';
+    ripple.style.left = `${e.clientX}px`;
+    ripple.style.top = `${e.clientY}px`;
+    document.body.appendChild(ripple);
+    
+    // Clean up ripple after animation ends
+    setTimeout(() => {
+      if (ripple.parentNode) {
+        ripple.parentNode.removeChild(ripple);
+      }
+    }, 600);
+  });
+
+  window.addEventListener('mouseup', () => {
+    isClicked = false;
+  });
+
+  // Main custom rendering loop for cursor & particles
+  function updateCursorAnimation() {
+    // 1. Position outline with smooth easing lag (magnetized target or raw mouse coords)
+    const targetOutlineX = isMagnetized ? magneticTargetX : mouseX;
+    const targetOutlineY = isMagnetized ? magneticTargetY : mouseY;
+
+    outlineX += (targetOutlineX - outlineX) * 0.15;
+    outlineY += (targetOutlineY - outlineY) * 0.15;
+
+    // 2. Velocity calculations
+    const vx = mouseX - prevMouseX;
+    const vy = mouseY - prevMouseY;
+    const instantSpeed = Math.sqrt(vx * vx + vy * vy);
+    
+    // Smooth out the speed value
+    currentSpeed += (instantSpeed - currentSpeed) * 0.1;
+    
+    // Track rotation angle if moving, else hold last angle
+    if (instantSpeed > 0.5) {
+      currentAngle = Math.atan2(vy, vx);
+    }
+
+    // Set scales: stretch outline dynamically when moving fast, shrink it when clicked
+    const targetScaleMultiplier = isClicked ? 0.6 : 1.0;
+    scaleMultiplier += (targetScaleMultiplier - scaleMultiplier) * 0.2;
+
+    const stretchFactor = 1.0 + Math.min(currentSpeed * 0.04, 0.5);
+    const squeezeFactor = 1.0 / stretchFactor;
+    
+    const scaleX = stretchFactor * scaleMultiplier;
+    const scaleY = squeezeFactor * scaleMultiplier;
+
+    cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%) rotate(${currentAngle}rad) scale(${scaleX}, ${scaleY})`;
+
+    // Store mouse position for next frame velocity
+    prevMouseX = mouseX;
+    prevMouseY = mouseY;
+
+    // 3. Update & cleanup trail particles
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.update();
+      if (p.isDead()) {
+        p.destroy();
+        particles.splice(i, 1);
+      }
+    }
+
+    requestAnimationFrame(updateCursorAnimation);
+  }
+  updateCursorAnimation();
+
+  // Attach hover detection for cursor outline expansion on interactive items
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('a, button, input, textarea, .glass-card, [role="button"], canvas')) {
+      document.body.classList.add('cursor-hover');
+    } else {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  // Setup card 3D tilt interactions
+  function setupCardSpotlights() {
+    document.querySelectorAll('.glass-card').forEach(card => {
+      // Ensure the card's parent has perspective for 3D tilt
+      if (card.parentElement && !card.parentElement.classList.contains('glass-card-container')) {
+        card.parentElement.classList.add('glass-card-container');
+      }
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--card-mouse-x', `${x}px`);
+        card.style.setProperty('--card-mouse-y', `${y}px`);
+
+        // 3D Tilt calculation
+        const cardWidth = rect.width;
+        const cardHeight = rect.height;
+        const centerX = cardWidth / 2;
+        const centerY = cardHeight / 2;
+        
+        // Limit maximum tilt to 12 degrees for sleek feel
+        const maxTilt = 12;
+        const tiltX = ((y - centerY) / centerY) * -maxTilt; // Pitch (rotation along X axis)
+        const tiltY = ((x - centerX) / centerX) * maxTilt;  // Yaw (rotation along Y axis)
+        
+        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseenter', () => {
+        // Use crisp transitions during entry
+        card.style.transition = 'transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        // Return to flat state with smooth reset transition
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        card.style.transition = 'transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease';
+      });
+    });
+  }
+  setupCardSpotlights();
+
+  // Scroll Reveal Intersection Observer setup
+  function setupScrollReveal() {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -12% 0px', // Trigger slightly before element enters view completely
+      threshold: 0.05
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target); // Trigger once
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  }
+  setupScrollReveal();
+
+  // Magnetic Hover logic for CTAs and navigation links
+  function setupMagneticHover() {
+    const targets = document.querySelectorAll('.btn-primary, .btn-ghost, .nav-link, button, a, #mobile-menu-toggle');
+    targets.forEach(el => {
+      // Exclude simple full-page anchors or generic non-interactive triggers if any
+      if (el.getAttribute('href') === '#') return;
+      el.classList.add('magnetic-element');
+
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+
+        // Snapping target coordinates for outline
+        magneticTargetX = cx + dx * 0.35;
+        magneticTargetY = cy + dy * 0.35;
+        isMagnetized = true;
+
+        // Float the element itself toward the mouse
+        el.style.transform = `translate3d(${dx * 0.25}px, ${dy * 0.25}px, 0)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        isMagnetized = false;
+        // Smoothly return element to center
+        el.style.transform = 'translate3d(0, 0, 0)';
+      });
+    });
+  }
+  setupMagneticHover();
+
+  // Mobile Menu Logic
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (mobileMenuToggle && mobileMenuClose && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+    });
+
+    const closeMenu = () => {
+      mobileMenu.classList.add('translate-x-full');
+    };
+
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Smooth scroll logic
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Adjust for navbar height
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = targetElement.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Active Link Highlighting using Intersection Observer
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileNavLinksList = document.querySelectorAll('.mobile-nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  const observerOptionsHighlight = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px', // Trigger when section occupies the sweet spot of viewport
+    threshold: 0
+  };
+
+  const observerCallbackHighlight = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        
+        // Update Desktop Nav
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.remove('text-on-surface-variant', 'border-transparent');
+            link.classList.add('text-secondary-fixed-dim', 'font-bold', 'border-secondary-fixed-dim');
+          } else {
+            link.classList.add('text-on-surface-variant', 'border-transparent');
+            link.classList.remove('text-secondary-fixed-dim', 'font-bold', 'border-secondary-fixed-dim');
+          }
+        });
+
+        // Update Mobile Nav
+        mobileNavLinksList.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.remove('text-on-surface-variant');
+            link.classList.add('text-secondary-fixed-dim');
+          } else {
+            link.classList.add('text-on-surface-variant');
+            link.classList.remove('text-secondary-fixed-dim');
+          }
+        });
+      }
+    });
+  };
+
+  const observerHighlight = new IntersectionObserver(observerCallbackHighlight, observerOptionsHighlight);
+  sections.forEach(section => observerHighlight.observe(section));
+</script>
+</body></html>
